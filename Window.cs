@@ -25,7 +25,7 @@ namespace KeyboardControlApp
             this.btnDisable.Location = new System.Drawing.Point(50, 30);
             this.btnDisable.Name = "btnDisable";
             this.btnDisable.Size = new System.Drawing.Size(200, 50);
-            this.btnDisable.Text = "Desabilitar Teclado";
+            this.btnDisable.Text = "Disable Keyboard";
             this.btnDisable.UseVisualStyleBackColor = true;
             this.btnDisable.Click += new EventHandler(this.btnDisable_Click);
 
@@ -35,7 +35,7 @@ namespace KeyboardControlApp
             this.btnEnable.Location = new System.Drawing.Point(50, 100);
             this.btnEnable.Name = "btnEnable";
             this.btnEnable.Size = new System.Drawing.Size(200, 50);
-            this.btnEnable.Text = "Habilitar Teclado";
+            this.btnEnable.Text = "Enable Keyboard";
             this.btnEnable.UseVisualStyleBackColor = true;
             this.btnEnable.Click += new EventHandler(this.btnEnable_Click);
 
@@ -46,7 +46,7 @@ namespace KeyboardControlApp
             this.Controls.Add(this.btnDisable);
             this.Controls.Add(this.btnEnable);
             this.Name = "Window";
-            this.Text = "Controle de Teclado";
+            this.Text = "Keyboard Control";
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
@@ -54,11 +54,11 @@ namespace KeyboardControlApp
         {
             if (ExecuteCommand("sc config i8042prt start= disabled"))
             {
-                MessageBox.Show("Teclado interno desabilitado. Por favor, reinicie o computador.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Internal keyboard disabled. Please restart your computer.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Não foi possível desabilitar o teclado interno.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Unable to disable the internal keyboard.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -66,11 +66,11 @@ namespace KeyboardControlApp
         {
             if (ExecuteCommand("sc config i8042prt start= auto"))
             {
-                MessageBox.Show("Teclado interno habilitado. Por favor, reinicie o computador.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Internal keyboard enabled. Please restart your computer.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Não foi possível habilitar o teclado interno.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Unable to enable the internal keyboard.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -94,7 +94,7 @@ namespace KeyboardControlApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erro ao executar o comando: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error executing command: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
